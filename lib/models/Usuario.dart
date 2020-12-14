@@ -28,6 +28,13 @@ class Usuario {
         senha = map['senha'],
         imageUrl = map['imageUrl'];
 
+  Usuario.insert(nome, email, senha, imageUrl)
+      : this.id = null,
+        this.nome = nome,
+        this.email = email,
+        this.senha = senha,
+        this.imageUrl = imageUrl;
+
   Map<String, dynamic> toMapForDb() {
     var map = Map<String, dynamic>();
     map['id'] = id;

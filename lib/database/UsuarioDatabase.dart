@@ -65,6 +65,22 @@ class UsuarioDatabase {
     return null;
   }
 
+
+  Future procurarUsuario(String nome, String senha)  {
+    // List<Map> list = await db.rawQuery('SELECT * FROM Test');
+  //   var client = await db;
+  //   // final Future<List<Map<String, dynamic>>> futureMaps = client.query('usuario', where: 'nome = ?, senha = ?', whereArgs: [nome, senha]);
+  //   // var maps = await futureMaps;
+  //   db.rawQuery('SELECT * FROM "table"');
+  //
+  //   // if (maps.length != 0) {
+  //   //   var usuario = Usuario.fromDb(maps.first);
+  //   //   print(usuario.nome);
+  //   // }
+  //   // return null;
+
+  }
+
   Future<List<Usuario>> fetchAll() async {
     var client = await db;
     var res = await client.query('usuario');
