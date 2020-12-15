@@ -190,22 +190,26 @@ class _LoginPageState extends State<LoginPage>{
                     ),
                     child: Center(
                       child: IconButton(
-                        icon: Text('Login'.toUpperCase(),//mudar para botão
+                        icon: Text('Login'.toUpperCase(),
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold
                         ),
                       ),
-                        onPressed: (){
-                          var database = new TodoProvider();
-                          var usuario = new Usuario();
-                          database.getPerso('SELECT * FROM USUARIO');
-
+                        color: Colors.transparent,
+                        onPressed: () async {
+                          final db = UsuarioDatabase();
+                          bool _usuarios = await db.procurarUsuario(nome, senha);
+                          if(_usuarios){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => App()),
+                            );
+                          }
                         },
                     ),
                   ),
                   ),
-
                   //Botão Cadastro
                   Container(
                     width: MediaQuery.of(context).size.width/1.5,
@@ -231,7 +235,10 @@ class _LoginPageState extends State<LoginPage>{
                           ),
                         ),
                         onPressed: (){
-                          runApp(App());
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => App()),
+                          );
                         },
                     ),
                   ),

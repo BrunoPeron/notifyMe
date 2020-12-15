@@ -87,17 +87,6 @@ class TodoProvider {
     // return null;
   }
 
-  // Future<Database> get db async {
-  //   if (_database != null) {
-  //     return _database;
-  //   }
-  //   _database = await init();
-  //
-  //   return _database;
-  // }
-
-
-
 
   Future close() async => db.close();
 }
