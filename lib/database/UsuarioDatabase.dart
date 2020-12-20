@@ -70,7 +70,6 @@ class UsuarioDatabase {
     var client = await db;
     final Future<List<Map<String, dynamic>>> futureMaps = client.query('usuario', where: 'nome = ? and senha = ?', whereArgs: [nome, senha]);
     var maps = await futureMaps;
-
     if (maps.length != 0) {
       var usuario = Usuario.fromDb(maps.first);
       return usuario.nome != null;
