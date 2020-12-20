@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projeto_app/database/DatabaseHelper.dart';
+import 'package:projeto_app/models/Usuario.dart';
+import 'cadastro.dart';
+import 'database/UsuarioDatabase.dart';
+// import 'app.dart';
 
 void main() {
   runApp(LoginPage());
@@ -12,8 +17,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage>{
-  @override
+  String nome = "";
+  String senha = "";
 
+  @override
   void initStates(){
     SystemChrome.setEnabledSystemUIOverlays([]);
     super.initState();
@@ -108,6 +115,10 @@ class _LoginPageState extends State<LoginPage>{
                         ),
                           hintText: 'E-mail'
                       ),
+                      onChanged: (text) {
+                        nome = text;
+                        print("nome: $text");
+                      },
                     ),
                   ),
 
@@ -139,6 +150,10 @@ class _LoginPageState extends State<LoginPage>{
                           ),
                           hintText: 'Password'
                       ),
+                      onChanged: (text) {
+                        senha = text;
+                        print("nome: $text");
+                      },
                     ),
                   ),
 
@@ -174,15 +189,27 @@ class _LoginPageState extends State<LoginPage>{
                       )
                     ),
                     child: Center(
-                      child: Text('Login'.toUpperCase(),//mudar para botão
+                      child: IconButton(
+                        icon: Text('Login'.toUpperCase(),
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold
                         ),
                       ),
+                        color: Colors.transparent,
+                        onPressed: () async {
+                          final db = UsuarioDatabase();
+                          bool _usuarios = await db.procurarUsuario(nome, senha);
+                          if(_usuarios){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => App()),
+                            );
+                          }
+                        },
                     ),
                   ),
-
+                  ),
                   //Botão Cadastro
                   Container(
                     width: MediaQuery.of(context).size.width/1.5,
@@ -200,13 +227,21 @@ class _LoginPageState extends State<LoginPage>{
                         )
                     ),
                     child: Center(
-                      child: Text('Cadastre-se'.toUpperCase(),//mudar para botão
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold
+                      child: IconButton(
+                        icon: Text('Cadastro'.toUpperCase(),//mudar para botão
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold
+                          ),
                         ),
-                      ),
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => App()),
+                          );
+                        },
                     ),
+                  ),
                   ),
                 ],
               ),
