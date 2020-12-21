@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto_app/database/DatabaseHelper.dart';
+import 'package:projeto_app/inicio.dart';
 import 'package:projeto_app/models/Usuario.dart';
 import 'cadastro.dart';
 import 'database/UsuarioDatabase.dart';
-// import 'app.dart';
+import 'inicio.dart';
+import 'Cabecalho.dart';
 
 void main() {
   runApp(LoginPage());
@@ -201,10 +203,15 @@ class _LoginPageState extends State<LoginPage>{
                           final db = UsuarioDatabase();
                           bool _usuarios = await db.procurarUsuario(nome, senha);
                           if(_usuarios){
+                            // runApp(InicioPage());
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => App()),
+                              MaterialPageRoute(builder: (context) => Cabecalho()),
                             );
+                          } else {
+                            void _exibirDialogo() {
+                              showAlertDialog1(context);
+                            }
                           }
                         },
                     ),
@@ -251,4 +258,29 @@ class _LoginPageState extends State<LoginPage>{
       ),
     );
   }
+}
+
+
+showAlertDialog1(BuildContext context)
+{
+  // configura o button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () { },
+  );
+  // configura o  AlertDialog
+  AlertDialog alerta = AlertDialog(
+    title: Text("Promoção Imperdivel"),
+    content: Text("Não perca a promoção."),
+    actions: [
+      okButton,
+    ],
+  );
+  // exibe o dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alerta;
+    },
+  );
 }
