@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:projeto_app/cabecalho.dart';
 import 'package:projeto_app/cadastro.dart';
 
+import 'cabecalho_cat.dart';
+
 class LoginPage extends StatefulWidget {
   State<StatefulWidget> createState() {
     return _LoginPageState();
@@ -29,13 +31,7 @@ class _LoginPageState extends State<LoginPage> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 3,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.blue,
-                      Colors.blueGrey,
-                    ]),
+                color: Colors.blue,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(24),
                   bottomRight: Radius.circular(24),
@@ -49,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                     alignment: Alignment.center,
                     child: Text(
                       "NotifyMy",
-                      style: TextStyle(color: Colors.black, fontSize: 60),
+                      style: TextStyle(color: Colors.white, fontSize: 60),
                     ),
                   ),
                   Spacer(),
@@ -149,12 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: MediaQuery.of(context).size.width / 1.5,
                     height: 50,
                     decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.blue,
-                            Colors.blueAccent,
-                          ],
-                        ),
+                        color: Colors.blue,
                         borderRadius: BorderRadius.all(Radius.circular(50))),
                     child: Center(
                       child: IconButton(
@@ -172,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Cabecalho()),
+                                builder: (context) => CabecalhoCat()),
                           );
                           // } else {
                           //   void _exibirDialogo() {

@@ -28,13 +28,7 @@ class _CadastroState extends State<Cadastro> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 3,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.blue,
-                      Colors.blueGrey,
-                    ]),
+                color: Colors.blue,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(24),
                   bottomRight: Radius.circular(24),
@@ -48,7 +42,7 @@ class _CadastroState extends State<Cadastro> {
                     alignment: Alignment.center,
                     child: Text(
                       "NotifyMy",
-                      style: TextStyle(color: Colors.black, fontSize: 60),
+                      style: TextStyle(color: Colors.white, fontSize: 60),
                     ),
                   ),
                   Spacer(),

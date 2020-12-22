@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'cabecalho.dart';
+import 'cabecalho_cat.dart';
+
 class CustomDrawer extends StatefulWidget {
   @override
   _CustomDrawerState createState() => _CustomDrawerState();
@@ -48,7 +51,22 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: Text('MAIN'),
             selected: '/main' == _selectedIndex,
             onTap: () {
-              _onSelectItem('/main');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => CabecalhoCat()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Forum'),
+            selected: '/cabecalho' == _selectedIndex,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Cabecalho()),
+              );
             },
           ),
           // Container(
