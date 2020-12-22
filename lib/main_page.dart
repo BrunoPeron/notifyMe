@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_app/custom_drawer.dart';
 import 'package:projeto_app/database/UsuarioDatabase.dart';
 import 'package:projeto_app/models/Usuario.dart';
 
 class MainPage extends StatefulWidget {
+  static const routeName = '/main';
   @override
   State<StatefulWidget> createState() {
     return MainPageState();
@@ -21,13 +23,18 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.topCenter,
-      child: Column(
-        children: <Widget>[
-          _buildAddButton(),
-          _buildCarList(usuario),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        drawer: CustomDrawer(),
+        body: Container(
+          alignment: Alignment.topCenter,
+          child: Column(
+            children: <Widget>[
+              _buildAddButton(),
+              _buildCarList(usuario),
+            ],
+          ),
+        ),
       ),
     );
   }

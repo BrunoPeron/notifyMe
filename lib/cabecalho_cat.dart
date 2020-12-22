@@ -5,14 +5,14 @@ import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'package:projeto_app/custom_drawer.dart';
 // import 'package:projeto_app/firstPage.dart';
 
-class Cabecalho extends StatefulWidget {
+class CabecalhoCat extends StatefulWidget {
   static const routeName = '/cabecalho';
   State<StatefulWidget> createState() {
-    return _Cabecalho();
+    return _CabecalhoCat();
   }
 }
 
-class _Cabecalho extends State<Cabecalho> {
+class _CabecalhoCat extends State<CabecalhoCat> {
   @override
   void initState() {
     // SystemChrome.setEnabledSystemUIOverlays([]);
@@ -42,8 +42,8 @@ class _Cabecalho extends State<Cabecalho> {
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
-              Tab(text: "Fóruns"),
-              Tab(text: "Fóruns participantes"),
+              Tab(text: "Meus Favoritos"),
+              Tab(text: "Categorias"),
             ],
           ),
         ),
@@ -51,51 +51,12 @@ class _Cabecalho extends State<Cabecalho> {
           children: [
             ListView(
               children: [
-                Card(
-                  color: Colors.grey,
-                  margin: EdgeInsets.all(10),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Text(
-                          'title title title',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                            'conteudo conteudo conteudo conteudo conteudo conteudo conteudo conteudo conteudo'),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text('110k'),
-                            IconButton(
-                                icon: Icon(Icons.lightbulb_outline),
-                                onPressed: null),
-                            Text('5k'),
-                            IconButton(icon: Icon(Icons.link), onPressed: null),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+
               ],
             ),
             ListView(
               children: [
-                Card(
-                  color: Colors.grey,
-                  margin: EdgeInsets.all(10),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Text('title'),
-                        Text('conteudo'),
-                      ],
-                    ),
-                  ),
-                ),
+
               ],
             ),
           ],
