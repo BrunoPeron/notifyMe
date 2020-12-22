@@ -5,6 +5,7 @@ import 'package:projeto_app/cabecalho.dart';
 import 'package:projeto_app/cadastro.dart';
 
 import 'cabecalho_cat.dart';
+import 'database/UsuarioDatabase.dart';
 
 class LoginPage extends StatefulWidget {
   State<StatefulWidget> createState() {
@@ -156,20 +157,19 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         color: Colors.transparent,
                         onPressed: () async {
-                          // final db = UsuarioDatabase();
-                          // bool _usuarios = await db.procurarUsuario(nome, senha);
-                          // if(_usuarios){
-                          //   // runApp(InicioPage());
+                          final db = UsuarioDatabase();
+                          bool _usuarios = await db.procurarUsuario(nome, senha);
+                          if(_usuarios){
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => CabecalhoCat()),
                           );
-                          // } else {
-                          //   void _exibirDialogo() {
-                          //     showAlertDialog1(context);
-                          //   }
-                          // }
+                          } else {
+                            void _exibirDialogo() {
+                              showAlertDialog1(context);
+                            }
+                          }
                         },
                       ),
                     ),
